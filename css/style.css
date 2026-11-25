@@ -1,0 +1,293 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Estilo base — Tema escuro com neon */
+:root {
+    --fundo-escuro: #0a0e17;
+    --fundo-card: #121a29;
+    --borda-neon-ciano: #00f0ff;
+    --borda-neon-roxo: #b000ff;
+    --borda-neon-verde: #00ff88;
+    --texto-claro: #e6e6e6;
+    --texto-destaque: #ffffff;
+    --erro: #ff4466;
+    /* ✅ Adicionei as variáveis que estavam faltando */
+    --neon-ciano: #00f0ff;
+    --neon-roxo: #b000ff;
+}
+
+body {
+    background-color: var(--fundo-escuro);
+    color: var(--texto-claro);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* Cabeçalho */
+header {
+    text-align: center;
+    padding: 2rem;
+    border-bottom: 1px solid var(--borda-neon-ciano);
+    box-shadow: 0 0 15px var(--borda-neon-ciano);
+}
+
+h1 {
+    font-size: 2.2rem;
+    color: var(--borda-neon-ciano);
+    text-shadow: 0 0 10px var(--borda-neon-ciano);
+    margin-bottom: 0.5rem;
+}
+
+.subtitulo {
+    color: #99aabb;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Navegação */
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+.nav-btn {
+    background: transparent;
+    color: var(--borda-neon-ciano);
+    border: 1px solid var(--borda-neon-ciano);
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover, .nav-btn.ativo {
+    background-color: var(--borda-neon-ciano);
+    color: var(--fundo-escuro);
+    box-shadow: 0 0 12px var(--borda-neon-ciano);
+}
+
+/* Conteúdo principal */
+main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+.secao {
+    background-color: var(--fundo-card);
+    border: 1px solid var(--borda-neon-roxo);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 10px rgba(176, 0, 255, 0.2);
+    display: none;
+}
+
+.secao.ativa {
+    display: block;
+    animation: aparecer 0.4s ease;
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+    color: var(--borda-neon-roxo);
+    margin-bottom: 1.2rem;
+    text-shadow: 0 0 6px rgba(176, 0, 255, 0.4);
+}
+
+p {
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul li {
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+ul li::before {
+    content: "◆";
+    color: var(--borda-neon-verde);
+    margin-right: 0.8rem;
+    font-size: 0.8rem;
+}
+
+/* Botões e caixas */
+.btn-detalhes, .proximo-btn, .reiniciar-btn, .btn-resposta {
+    background: transparent;
+    border: 1px solid var(--borda-neon-verde);
+    color: var(--borda-neon-verde);
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+    margin-right: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-detalhes:hover, .proximo-btn:hover, .reiniciar-btn:hover, .btn-resposta:hover {
+    background-color: var(--borda-neon-verde);
+    color: var(--fundo-escuro);
+    box-shadow: 0 0 10px var(--borda-neon-verde);
+}
+
+.caixa-oculta {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-left: 2px solid var(--borda-neon-ciano);
+    background-color: rgba(0, 240, 255, 0.05);
+    display: none;
+}
+
+.caixa-oculta.visivel {
+    display: block;
+}
+
+/* Quiz */
+#botoes-respostas {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    margin: 1rem 0;
+}
+
+.btn-resposta {
+    border-color: #666;
+    color: var(--texto-claro);
+}
+
+.btn-resposta.correta {
+    border-color: var(--borda-neon-verde);
+    background-color: rgba(0, 255, 136, 0.1);
+}
+
+.btn-resposta.errada {
+    border-color: var(--erro);
+    background-color: rgba(255, 68, 102, 0.1);
+}
+
+#feedback {
+    font-weight: bold;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+.feedback-correto {
+    color: var(--borda-neon-verde);
+}
+
+.feedback-errado {
+    color: var(--erro);
+}
+
+.placar {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid var(--borda-neon-ciano);
+    color: #667788;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    h1 { font-size: 1.6rem; }
+    nav { flex-direction: column; }
+    .secao { padding: 1.2rem; }
+}
+
+/* 🤖 Assistente IA */
+#assistente {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#chat-mensagens {
+    border: 1px solid var(--borda-neon-roxo);
+    border-radius: 8px;
+    padding: 1rem;
+    height: 350px;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.mensagem {
+    margin: 0.75rem 0;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    line-height: 1.5;
+}
+
+.mensagem.ia {
+    background: rgba(139, 92, 246, 0.15);
+    border-left: 3px solid var(--neon-roxo);
+    color: #e0e7ff;
+}
+
+.mensagem.usuario {
+    background: rgba(0, 240, 255, 0.1);
+    border-right: 3px solid var(--neon-ciano);
+    color: #cffafe;
+    text-align: right;
+}
+
+.chat-input {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    border: 1px solid var(--borda-neon-ciano);
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    font-size: 1rem;
+}
+
+.chat-input input:focus {
+    outline: none;
+    border-color: var(--neon-ciano);
+    box-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
+}
+
+.chat-input button {
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(90deg, var(--neon-ciano), var(--neon-roxo));
+    border: none;
+    border-radius: 6px;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.chat-input button:hover {
+    transform: scale(1.05);
+}
